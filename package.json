@@ -13,7 +13,7 @@
     "url": "https://github.com/UKHomeOffice/hof-example-form/"
   },
   "scripts": {
-    "start": "npm-run-all --parallel watch:app watch:scss watch:js watch:translations && npm run create:public && npm run sass && npm run browserify && npm run copy:images && npm run hof-transpile",
+    "start": "npm-run-all --parallel watch:app watch:scss watch:js watch:translations create:public sass browserify copy:images hof-transpile",
     "dev": "npm-run-all --parallel watch:app watch:scss watch:js watch:translations",
     "watch:app": "NODE_ENV=development nodemon .",
     "watch:scss": "nodemon -e scss -x 'npm run sass'",
