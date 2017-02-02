@@ -13,7 +13,7 @@ module.exports = {
   },
   redis: {
     port:  6379,
-    host: 'redis-cache'
+    host: 'redis-database'
   },
   email: {
     caseworker: {
