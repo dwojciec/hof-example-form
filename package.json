@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/antipodas/hof-example-form/"
+    "url": "https://github.com/dwojciec/hof-example-form/"
   },
   "scripts": {
     "start": "npm-run-all --parallel watch:app watch:scss watch:js watch:translations",
@@ -34,6 +34,7 @@
   },
   "author": "HomeOffice",
   "dependencies": {
+    "properties-reader": "^0.0.15",
     "body-parser": "^1.13.0",
     "browserify": "^12.0.1",
     "churchill": "0.0.5",
