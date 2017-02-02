@@ -1,5 +1,9 @@
 'use strict';
 
+var PropertiesReader = require('properties-reader');
+var properties = PropertiesReader('/etc/node-app/node-app.config');
+
+
 /*eslint no-process-env: 0*/
 /*eslint no-inline-comments: 0*/
 /*eslint camelcase: 0*/
@@ -13,7 +17,8 @@ module.exports = {
   },
   redis: {
     port:  6379,
-    host: 'redis-database'
+    host: properties.get('service')
+/*    host: 'redis-database' */
   },
   email: {
     caseworker: {
