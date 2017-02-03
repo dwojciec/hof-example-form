@@ -1,6 +1,6 @@
 ## Implementation of this NodeJs and Redis Apps on Openshift
 
-#### Thanks to [Petro Algaba](https://github.com/antipodas)
+#### Thanks to [Petro Algaba](https://github.com/antipodas) for his work and support.
 
 Create the Proof of Concept project
 
@@ -226,3 +226,28 @@ oc export all --as-template=poc -o json >poc.json
 
 1. script to create the PV needed for redis database
 2. based on the exported file I have to update value with [parameters](https://docs.openshift.org/latest/dev_guide/templates.html#writing-parameters) to be able to redeploy the full apps based on the template.
+
+### Code changed
+
+To offer the flexibility we externalize the service used by the application. 
+We changed config.js and package.json files.
+
+Inside **package.json** I added the dependencies on
+
+```
+ "properties-reader": "^0.0.15",
+```
+
+Inside **config.js** I added the call to read the value inside the external properties file in which we have the value of the service used.
+
+```
+var PropertiesReader = require('properties-reader');
+var properties = PropertiesReader('/etc/node-app/node-app.config');
+.....
+  redis: {
+    port:  6379,
+    host: properties.get('service')
+/*    host: 'redis-database' */
+  },
+  
+```
