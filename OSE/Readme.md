@@ -226,6 +226,7 @@ oc export all --as-template=poc -o json >poc.json
 
 * script to create the PV needed for redis database
 * based on the exported file I have to update value with [parameters](https://docs.openshift.org/latest/dev_guide/templates.html#writing-parameters) to be able to redeploy the full apps based on the template.
+* * create a script to automate the application deployment
 
 
 ### <a name="codechanged"></a>Code changed from [original project](https://github.com/UKHomeOfficeForms/hof-example-form)
