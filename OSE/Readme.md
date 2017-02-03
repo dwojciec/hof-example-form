@@ -201,7 +201,7 @@ The full application inside Openshift is
 
 ![redis-database](https://raw.githubusercontent.com/dwojciec/hof-example-form/master/OSE/images/beis-apps.png)
 
-By having a ConfigMap we can switch the service from redis-cache (ephemeral) or redis-database (persistent). We are offering more flexibility. see here what we changed inside the original code to offer this flexibility.
+By having a ConfigMap we can switch the service from redis-cache (ephemeral) or redis-database (persistent). We are offering more flexibility. see [here](#codechanged) what we changed inside the original code to offer this flexibility.
 
 
 To access the application we are using the route created. 
@@ -224,10 +224,11 @@ oc export all --as-template=poc -o json >poc.json
 
 ### To Do
 
-1. script to create the PV needed for redis database
-2. based on the exported file I have to update value with [parameters](https://docs.openshift.org/latest/dev_guide/templates.html#writing-parameters) to be able to redeploy the full apps based on the template.
+* script to create the PV needed for redis database
+* based on the exported file I have to update value with [parameters](https://docs.openshift.org/latest/dev_guide/templates.html#writing-parameters) to be able to redeploy the full apps based on the template.
 
-### Code changed
+
+### <a name="codechanged"></a>Code changed from [original project](https://github.com/UKHomeOfficeForms/hof-example-form)
 
 To offer the flexibility we externalize the service used by the application. 
 We changed config.js and package.json files.
